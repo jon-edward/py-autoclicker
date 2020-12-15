@@ -7,7 +7,7 @@ from PyQt5.QtGui import QDoubleValidator, QColor, QRegExpValidator
 from clicker_util import AutoClickerThread, Config, from_file
 from numpy import format_float_positional as float_to_str
 
-DEFAULTS_PATH = "../../Desktop/autoclicker/defaults.json"
+DEFAULTS_PATH = "defaults.json"
 
 
 class SubmittedWindow(QMainWindow):

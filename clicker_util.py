@@ -93,12 +93,12 @@ class AutoClickerThread(Thread):
         self.thread.start()
         while not self.stopped():
             if self.activated:
-                if self.config.output_type == 0 and self.config.output_sequence:
+                if self.config.output_type == 0:
                     # Mouse output
                     to_press = Button.right if self.config.mouse_output == 1 else Button.left
                     self.mouse_controller.press(to_press)
                     self.mouse_controller.release(to_press)
-                elif self.config.output_type == 1:
+                elif self.config.output_type == 1 and self.config.output_sequence:
                     # Keyboard output
                     current_key = self.config.output_sequence[self.sequence_index]
                     to_press = KeyCode.from_char(current_key)
