@@ -10,4 +10,4 @@ An easy-to-use, efficient auto clicker built in Python.
  - Use keyboard presses as output instead of mouse clicks if desired.
  - Save settings automatically for easy startup.
  - Customize hold times for keyboard presses as output.
- - Works in full screen.
+ - Use while in full screen.
