@@ -165,20 +165,25 @@ class MainWindow(QMainWindow):
         self.submit_view.run()
 
     def set_tooltips(self):
-        self.wait_time.setToolTip("Minimum wait time (in seconds) between clicks.")
-        self.deviation_time.setToolTip("Deviation time (in seconds) to wait between clicks.")
-        self.toggle_action.setToolTip("Impacts if input toggles clicking, or if clicking persists while the input is " +
-                                      "held.")
+        self.wait_time.setToolTip("Minimum wait time (in seconds) between output.")
+        self.deviation_time.setToolTip("Deviation time (in seconds) to wait between output.")
+        self.distribution_type_combo.setToolTip("Determines if randomized wait deviation is calculated by uniform " +
+                                                "or Gaussian (normal) distribution.")
+        self.toggle_action.setToolTip("Impacts if input toggles actuation, or if clicking only persists while the " +
+                                      "input is held.")
         self.input_keyboard_subview.alt_modifier.setToolTip("Impacts whether the left-alt key is used with input.")
         self.input_keyboard_subview.input_string.setToolTip("A whitespace-separated string of characters to watch " +
                                                             "for to start clicking.")
+        self.output_keyboard_subview.input_sequence.setToolTip("A whitespace-separated string of characters to cycle " +
+                                                               "through when actuation starts.")
+        self.output_keyboard_subview.hold_time.setToolTip("Defines how long each key in output sequence is held.")
 
     def set_validators(self):
         self.output_keyboard_subview.hold_time.setValidator(QDoubleValidator(bottom=0.0))
         self.wait_time.setValidator(QDoubleValidator(bottom=0.0))
         self.deviation_time.setValidator(QDoubleValidator(bottom=0.0))
         self.input_keyboard_subview.input_string.setValidator(QRegExpValidator(QRegExp(r"([a-zA-Z0-9]\s)*")))
-        self.output_keyboard_subview.input_sequence.setValidator(QRegExpValidator(QRegExp(r"([a-zA-Z0-9],)*")))
+        self.output_keyboard_subview.input_sequence.setValidator(QRegExpValidator(QRegExp(r"([a-zA-Z0-9]\s)*")))
 
     def set_subview_items(self):
         self.stacked_input_view.addWidget(self.input_keyboard_subview)
@@ -254,7 +259,7 @@ class MainWindow(QMainWindow):
         self.input_mouse_subview.input_select.setCurrentIndex(self.defaults.special_mouse_press)
         self.output_subview_switch_combo.setCurrentIndex(self.defaults.output_type)
         self.output_mouse_subview.output_selector.setCurrentIndex(self.defaults.mouse_output)
-        self.output_keyboard_subview.input_sequence.setText(",".join(self.defaults.output_sequence))
+        self.output_keyboard_subview.input_sequence.setText(" ".join(self.defaults.output_sequence))
 
 
 def main():
