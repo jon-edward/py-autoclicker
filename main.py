@@ -106,6 +106,7 @@ class KeyboardOutputWidgetView(QWidget):
         self.form_layout.addRow(QLabel("Key hold time: "), self.hold_time)
         self.setLayout(self.form_layout)
 
+
 class MouseOutputWidgetView(QWidget):
     def __init__(self):
         super(MouseOutputWidgetView, self).__init__()
@@ -191,14 +192,13 @@ class MainWindow(QMainWindow):
         self.output_subview_switch_combo.addItems(["Mouse", "Keyboard"])
 
     def set_form(self, form):
-        form.addRow(QLabel("Wait time per click: "), self.wait_time)
-        form.addRow(QLabel("Deviation distribution type: "), self.distribution_type_combo)
-        form.addRow(self.distribution_type_label, self.deviation_time)
-        form.addRow(QLabel("Toggle: "), self.toggle_action)
         form.addRow(QLabel("Input handling type: "), self.input_subview_switch_combo)
         form.addRow(self.input_subview_container)
         form.addRow(QLabel("Output handling type: "), self.output_subview_switch_combo)
         form.addRow(self.output_subview_container)
+        form.addRow(QLabel("Toggle: "), self.toggle_action)
+        form.addRow(QLabel("Wait time per output actuation: "), self.wait_time)
+        form.addRow(QLabel("Deviation distribution type: "), self.distribution_type_combo)
         form.addRow(self.start_button)
 
     def switch_input_subview(self):
