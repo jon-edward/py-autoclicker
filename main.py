@@ -105,6 +105,9 @@ class KeyboardOutputWidgetView(QWidget):
         self.hold_time = QLineEdit()
         self.form_layout.addRow(QLabel("Key hold time: "), self.hold_time)
         self.setLayout(self.form_layout)
+        palette = self.palette()
+        palette.setColor(self.backgroundRole(), QColor(000, 200, 200))
+        self.setPalette(palette)
 
 
 class MouseOutputWidgetView(QWidget):
@@ -264,6 +267,7 @@ class MainWindow(QMainWindow):
 
 def main():
     app = QApplication(sys.argv)
+    app.setStyle("Fusion")
     window = MainWindow()
     window.show()
     sys.exit(app.exec_())
