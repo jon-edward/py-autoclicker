@@ -241,7 +241,7 @@ class MainWindow(QMainWindow):
         conf_dict.update(f("key_combination", self.input_keyboard_subview.input_string.text().strip().split()))
         conf_dict.update(f("special_mouse_press", self.input_mouse_subview.input_select.currentIndex()))
         conf_dict.update(f("output_type", self.output_subview_switch_combo.currentIndex()))
-        conf_dict.update(f("output_sequence", list(self.output_keyboard_subview.input_sequence.text().replace(",", ''))))
+        conf_dict.update(f("output_sequence", list(self.output_keyboard_subview.input_sequence.text().replace(" ", ""))))
         conf_dict.update(f("mouse_output", self.output_mouse_subview.output_selector.currentIndex()))
         conf_dict.update(f("hold_time", '' if not self.output_keyboard_subview.hold_time.text() else
                            float(self.output_keyboard_subview.hold_time.text())))
