@@ -12,6 +12,9 @@ __pycache__/
 # Config defaults
 defaults.json
 
+# Build scripts
+build.py
+
 # Distribution / packaging
 .Python
 build/
