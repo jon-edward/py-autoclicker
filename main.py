@@ -18,7 +18,7 @@ class SubmittedWindow(QMainWindow):
         self.form_layout = QFormLayout()
         self.container = QWidget()
         self.parent = parent
-        self.exit_button = QPushButton("Exit")
+        self.exit_button = QPushButton("Back")
         self.quit_button = QPushButton("Quit")
         self.run_info = Config()
         self.clicker_thread = AutoClickerThread(parent_ui=self)
