@@ -14,6 +14,7 @@ defaults.json
 
 # Build scripts
 build.py
+setup.py
 
 # Distribution / packaging
 .Python
